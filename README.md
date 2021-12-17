@@ -1,2 +1,9 @@
 # gloOzon
-training project of Glo Academy
+---
+## Training project of Glo Academy
+---
+## Tecnologies:
+  - HTML
+  - CSS
+  - JS
+  - Webpack
