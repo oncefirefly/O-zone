@@ -4,6 +4,6 @@
 ---
 ## Tecnologies:
   - HTML
-  - CSS
+  - SCSS
   - JS
   - Webpack
