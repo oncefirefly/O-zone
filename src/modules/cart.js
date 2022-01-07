@@ -9,6 +9,11 @@ const cart = () => {
   const cartSendBtn = cartModal.querySelector(".cart-confirm");
   const goodsWrapper = document.querySelector(".goods");
   const cartWrapper = document.querySelector(".cart-wrapper");
+  const cartCounter = cartBtn.querySelector(".counter");
+
+  cartCounter.textContent = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart")).length
+    : 0;
 
   cartBtn.addEventListener("click", () => {
     const cart = localStorage.getItem("cart")
@@ -42,6 +47,12 @@ const cart = () => {
       cart.push(goodItem);
 
       localStorage.setItem("cart", JSON.stringify(cart));
+
+      cartCounter.textContent = localStorage.getItem("cart")
+        ? JSON.parse(localStorage.getItem("cart")).length
+        : cart.length;
+        
+      localStorage.setItem("cartCounter", cartCounter.textContent);
     }
   });
 
@@ -79,6 +90,7 @@ const cart = () => {
       renderCart([]);
 
       cartTotal.textContent = 0;
+      cartCounter.textContent = 0;
     });
   });
 };
