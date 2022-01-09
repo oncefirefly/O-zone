@@ -32,6 +32,18 @@ const cart = () => {
     cartModal.style.display = "none";
   });
 
+  cartModal.addEventListener("click", (event) => {
+    if (event.target.closest(".cart-body") === null) {
+      cartModal.style.display = "none";
+    };
+  })
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      cartModal.style.display = "none";
+    }
+  });
+
   goodsWrapper.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn-primary")) {
       const card = event.target.closest(".card");
@@ -51,7 +63,7 @@ const cart = () => {
       cartCounter.textContent = localStorage.getItem("cart")
         ? JSON.parse(localStorage.getItem("cart")).length
         : cart.length;
-        
+
       localStorage.setItem("cartCounter", cartCounter.textContent);
     }
   });
